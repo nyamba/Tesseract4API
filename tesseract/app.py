@@ -41,8 +41,10 @@ def get_readable_pdf():
 @app.route("/image_to_string", methods=["POST"])
 def image_to_string():
 	file = request.files.getlist("file")
+        lang = request.form.get('lang', 'mon')
+        config = request.form.get('config', '--psm 6')
 	image = Image.open(file[0])
-	result = pytesseract.image_to_string(image, config="--psm 4")
+	result = pytesseract.image_to_string(image, config=config, lang=lang)
 
 	return result
 
