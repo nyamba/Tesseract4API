@@ -25,6 +25,11 @@ docker-compose up -d
 docker-compose down
 ```
 
+### Usage
+```
+curl -F 'file=@./test-22.jpg' -F 'lang=mon+eng+eq' -F 'config=--psm 6' localhost:8888/image_to_string
+```
+
 ### Python usage
 
 ```python
